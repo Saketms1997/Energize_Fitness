@@ -1,4 +1,28 @@
 workflows:
+  # 3) Android: builds an installable release APK (no Apple account needed).
+  # Uses android/key.properties if present, otherwise the debug key, which is
+  # fine for installing directly on phones but not for Google Play.
+  android-apk:
+    name: Android APK
+    instance_type: linux_x2
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      java: 17
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Test
+        script: flutter test
+      - name: Build release APK
+        script: flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    publishing:
+      email:
+        recipients:
+          - it.support@genus.in
+
   # 1) No Apple account needed: proves the app compiles for iOS.
   ios-build-check:
     name: iOS build check (unsigned)
