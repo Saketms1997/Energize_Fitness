@@ -21,7 +21,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - it.support@genus.in
+          - madhup.singhal@genus.in
 
   # 1) No Apple account needed: proves the app compiles for iOS.
   ios-build-check:
@@ -91,4 +91,4 @@ workflows:
         submit_to_testflight: true
       email:
         recipients:
-          - it.support@genus.in
+          - madhup.singhal@genus.in
