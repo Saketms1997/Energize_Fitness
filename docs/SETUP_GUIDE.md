@@ -86,26 +86,6 @@ Needs a Meta Business account and a WhatsApp Business phone number: https://deve
 
 The WhatsApp token exists only as a Supabase secret; the app sends its own signed-in session token to the function, which checks the caller owns the gym.
 
-## 6. Android (optional)
-
-Needs Android Studio → SDK Manager → **Android SDK Command-line Tools**, then `flutter doctor --android-licenses`.
-
-```powershell
-keytool -genkey -v -keystore $env:USERPROFILE\energize-release.jks -keyalg RSA -keysize 2048 -validity 10000 -alias energize
-```
-Create `android\key.properties` (git-ignored):
-```
-storePassword=...
-keyPassword=...
-keyAlias=energize
-storeFile=C:/Users/<you>/energize-release.jks
-```
-`powershell -File scripts\build_android.ps1` (add `-Bundle` for the Play Store). **Back up the keystore and passwords** — losing them means you can never update the published app.
-
-## 7. iOS
-
-Cannot be built on Windows. On a Mac with Xcode and an Apple Developer account: `flutter build ipa`. Set the bundle identifier and signing team in Xcode first.
-
 ## Known limits
 
 * The live SQLite file is not encrypted at rest (no SQLCipher). Mitigate with BitLocker/device encryption; backups *are* encrypted.

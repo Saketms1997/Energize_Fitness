@@ -1,9 +1,9 @@
 # Energize Fitness — gym management
 
-Offline-first gym management for a single owner: members, plans, payments (UPI QR + manual verification), attendance, trainers, WhatsApp reminders, encrypted backups, and optional cloud sync. Flutter (Windows first; Android/iOS targets present).
+Offline-first gym management for a single owner: members, plans, payments (UPI QR + manual verification), attendance, trainers, WhatsApp reminders, encrypted backups, and optional cloud sync. Flutter, Windows desktop only.
 
 * Owner's guide: [docs/USER_GUIDE.md](docs/USER_GUIDE.md)
-* Setup (build, installer, Supabase, WhatsApp, Android): [docs/SETUP_GUIDE.md](docs/SETUP_GUIDE.md)
+* Setup (build, installer, Supabase, WhatsApp): [docs/SETUP_GUIDE.md](docs/SETUP_GUIDE.md)
 * What is built, tested and *not* verified: [docs/IMPLEMENTATION_STATUS.md](docs/IMPLEMENTATION_STATUS.md)
 * Release checklist: [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md)
 

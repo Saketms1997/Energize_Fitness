@@ -34,4 +34,3 @@ Run through this before giving a build to a real gym.
 - [ ] BitLocker enabled on the gym PC; Windows user account has a password
 - [ ] Backup folder set, daily backup ticked, **backup password stored somewhere other than that PC**
 - [ ] Version bumped in `pubspec.yaml` (`version: x.y.z+build`)
-- [ ] Android only: keystore and passwords backed up in two places

@@ -35,13 +35,12 @@ Trainers (add/edit/deactivate, assign to members), attendance check-in by member
 Outbox push in true insertion order, idempotent retries, pull with a persisted cursor, server-wins conflict rule that audits what the loser lost, one bad operation cannot block the rest, secrets (password hashes) never leave the device, cloud sign-in with token refresh and tokens kept in the OS credential store, 5-minute background sync, Settings screen card.
 
 ### Phase 6 — Backup, installer, release
-AES-256-GCM encrypted backups (PBKDF2, authenticated header, integrity-checked, atomic write, retention), daily auto-backup, staged restore applied at next start with the old database kept, Inno Setup script, build scripts for Windows/Android, signing setup, Android INTERNET permission fix, setup/user/release docs.
+AES-256-GCM encrypted backups (PBKDF2, authenticated header, integrity-checked, atomic write, retention), daily auto-backup, staged restore applied at next start with the old database kept, Inno Setup script, build scripts for Windows, signing setup, setup/user/release docs.
 
 ## Bugs found by the tests while building this (all fixed)
 - v1 → v3 migration added `members.trainer_id` twice.
 - Sync ordered outbox rows by one-second timestamps with a random tie-break, so a v2 edit could reach the server before its v1 insert (spurious conflicts). Now ordered by insertion rowid; regression test added.
 - 401/403 responses wrongly triggered one-by-one retries.
-- Release Android manifest lacked the INTERNET permission (sync/WhatsApp would silently fail in a release APK).
 - Methods that threw before returning a `Future` (trainer/attendance), which made error handling inconsistent.
 
 ## NOT verified against the real thing
@@ -53,8 +52,6 @@ These were built to the documented API and tested against faithful fakes, but ne
 | WhatsApp Cloud API sending and webhook | no Meta business account; function code untested on Deno |
 | Inno Setup installer | Inno Setup not installed here; script written but never compiled |
 | Launching the release `.exe` | not started on this machine, to avoid creating data in the real app-data folder; run the smoke test |
-| Android release APK | see "Android" below |
-| iOS | needs a Mac with Xcode and an Apple Developer account |
 | macOS/Linux | not targeted |
 
 ### Android
