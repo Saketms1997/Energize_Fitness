@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest>=8.2
+pytest-qt>=4.4
+pyinstaller>=6.8
+responses>=0.25
+mongomock>=4.1
